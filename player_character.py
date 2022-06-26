@@ -1,8 +1,10 @@
+from unicodedata import name
 from config import HOMETOWNS
 
 class PlayerCharacter:
-    def __init__(self, hometown):
+    def __init__(self, name, hometown):
         self.hp = 5
+        self.name = name
         self.standing = True
         self.injured = False
         self.STA = HOMETOWNS[hometown]["STA"]
