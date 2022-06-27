@@ -1,21 +1,41 @@
 from unicodedata import name
-from config import HOMETOWNS
+from config import HOMETOWN_BASELINE_ABILITY_VALUES
+import random
+
 
 class PlayerCharacter:
-    def __init__(self, name, hometown):
+    def __init__(self, hometown):
         self.hp = 5
-        self.name = name
-        self.standing = True
-        self.injured = False
-        self.STA = HOMETOWNS[hometown]["STA"]
-        self.POW = HOMETOWNS[hometown]["POW"]
-        self.AGI = HOMETOWNS[hometown]["AGI"]
-        self.CHI = HOMETOWNS[hometown]["CHI"]
-        self.WIT = HOMETOWNS[hometown]["WIT"]
+        self.rep_rank = 3
+        self.abilities = {
+            "STA": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["STA"],
+            "POW": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["POW"],
+            "AGI": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["AGI"],
+            "CHI": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["CHI"],
+            "WIT": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["WIT"],
+        }
 
-    def receive_damage(self, amount):
-        self.hp -= amount
-        if self.hp <= 0:
-            self.standing = False
-            self.injured = True
-    
+    def __str__(self):
+        return \
+            "Your abilities are:\n" +\
+            "STA: " + str(self.abilities["STA"]) + "\n" +\
+            "POW: " + str(self.abilities["POW"]) + "\n" +\
+            "AGI: " + str(self.abilities["AGI"]) + "\n" +\
+            "CHI: " + str(self.abilities["CHI"]) + "\n" +\
+            "WIT: " + str(self.abilities["WIT"])
+
+    def embark_quest(self, quest):
+        attempt1 = self.abilities[quest.stat1] + self.abilities[quest.stat2] + random.randint(1, 6)
+        if attempt1 >= quest.difficulty_class:
+            print("You are succeeding.")
+            attempt2 = self.abilities[quest.stat3] + self.abilities[quest.stat4] + random.randint(1, 6)
+            if attempt2 >= quest.difficulty_class:
+                quest.available = False
+                self.rep_rank += 1
+                print("You succeeded. Your reputation is increasing.")
+            else:
+                self.rep_rank -= 1
+                print("You failed. Fuck you.")
+        else:
+            self.rep_rank -= 1
+            print("You failed. Fuck you.")

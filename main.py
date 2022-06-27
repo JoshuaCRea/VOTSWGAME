@@ -1,14 +1,16 @@
 from player_character import PlayerCharacter
+from quest import Quest
 
-print("Welcome to The Valley of the Silver Wolf!")
-name = input("What is your name? ") #Enter 'Soomin' as name
-hometown = input("Which town of the Valley is your hometown? Blackstone, Fangmarsh, Leap-Creek, Pouch, or Underclaw? ")
 
-name = PlayerCharacter(name, hometown)
+hometown = "Blackstone"
+pc = PlayerCharacter(hometown)
+catch_a_chicken = Quest()
 
-print(name.STA)
-print(name.POW)
-print(name.AGI)
-print(name.CHI)
-print(name.WIT)
-print(name.name)
+print("Welcome to the Valley of the Silver Wolf!")
+print(f"You are in {hometown}. What would you like to do? \n Options: 1. Draw Quests")
+print(pc)
+print("You chose Catch a Chicken. Some old bitch lost one of her cuccos. She tasks you with chasing it down and bringing it back.\n STEP ONE: Chase it down. STA + AGI")
+print(pc.rep_rank)
+pc.embark_quest(catch_a_chicken)
+print(pc.rep_rank)
+print(catch_a_chicken.available)
