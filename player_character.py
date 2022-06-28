@@ -16,6 +16,7 @@ class PlayerCharacter:
 
     def __str__(self):
         return \
+            f'Reputation rank: {self.rep_rank}\n' +\
             "Your abilities are:\n" +\
             "STA: " + str(self.abilities["STA"]) + "\n" +\
             "POW: " + str(self.abilities["POW"]) + "\n" +\
