@@ -1,6 +1,3 @@
-from player_character import PlayerCharacter
-
-
 class Quest:
     def __init__(self):
         self.difficulty_class = 5
