@@ -30,7 +30,7 @@ class PlayerCharacter:
         if self._calculate_attempt_score(quest_card.step_one) >= quest_card.difficulty_class:
             print("SUCCESS Step One.")
             if self._calculate_attempt_score(quest_card.step_two) >= quest_card.difficulty_class:
-                self._quest_won(quest_card.reward)
+                self._quest_won(quest_card.rewards["technique"])
                 return
         self._quest_failed()
 
@@ -39,10 +39,10 @@ class PlayerCharacter:
                self.abilities[quest_step["abilities"][1]] +\
                random.randint(1, 6)
 
-    def _quest_won(self, reward):
+    def _quest_won(self, technique):
         print("SUCCESS Step Two. Your reputation increased.")
         self.rep_rank += 1
-        self.techniques.append(reward)
+        self.techniques.append(technique)
 
     def _quest_failed(self):
         self.rep_rank -= 1
