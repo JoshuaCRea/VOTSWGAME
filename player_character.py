@@ -13,10 +13,12 @@ class PlayerCharacter:
             "CHI": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["CHI"],
             "WIT": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["WIT"],
         }
+        self.techniques = []
 
     def __str__(self):
         return \
             f'Reputation rank: {self.rep_rank}\n' +\
+            f'Techniques: {self.techniques}\n' +\
             "Your abilities are:\n" +\
             "STA: " + str(self.abilities["STA"]) + "\n" +\
             "POW: " + str(self.abilities["POW"]) + "\n" +\
@@ -27,11 +29,12 @@ class PlayerCharacter:
     def embark_quest(self, quest):
         attempt1 = self.abilities[quest.step_one["abilities"][0]] + self.abilities[quest.step_one["abilities"][1]] + random.randint(1, 6)
         if attempt1 >= quest.difficulty_class:
-            print("You are succeeding.")
+            print("SUCCESS Step One.")
             attempt2 = self.abilities[quest.step_two["abilities"][0]] + self.abilities[quest.step_two["abilities"][1]] + random.randint(1, 6)
             if attempt2 >= quest.difficulty_class:
+                print("SUCCESS Step Two. Your reputation increased.")
                 self.rep_rank += 1
-                print("You succeeded. Your reputation is increasing.")
+                self.techniques.append(quest.reward)
                 return
         self.rep_rank -= 1
         print("You failed. Fuck you.")

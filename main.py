@@ -16,10 +16,10 @@ def display_info_of_quest(quest):
 if __name__ == '__main__':
     hometown = "Blackstone"
     pc = PlayerCharacter(hometown)
-    print(pc)
+    print(pc); print()
 
-    quest = ask_player_for_action_choice()
-    display_info_of_quest(quest)
+    quest = ask_player_for_action_choice(); print()
+    display_info_of_quest(quest); print()
 
-    pc.embark_quest(quest)
-    print(pc)
+    pc.embark_quest(quest); print()
+    print(f'Rep rank: {pc.rep_rank}'); print(f'Techniques: {pc.techniques}')
