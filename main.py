@@ -1,23 +1,22 @@
 from player_character import PlayerCharacter
-from quest import Quest
+from quest_card import QuestCard
 
 
 def ask_player_for_action_choice():
     print(f"What would you like to do?")
-    return Quest()
+    return QuestCard()
 
 
-def display_info_of_quest(quest):
-    print(f'You chose {quest}')
+def display_info_of_quest(quest_card):
+    print(f'You chose {quest_card}')
 
 
 if __name__ == '__main__':
-    hometown = "Blackstone"
-    pc = PlayerCharacter(hometown)
+    pc = PlayerCharacter("Blackstone")
     print(pc); print()
 
-    quest = ask_player_for_action_choice(); print()
-    display_info_of_quest(quest)
+    quest_card = ask_player_for_action_choice(); print()
+    display_info_of_quest(quest_card)
 
-    pc.embark_quest(quest); print()
+    pc.embark_quest(quest_card); print()
     print(f'Rep rank: {pc.rep_rank}'); print(f'Techniques: {pc.techniques}')

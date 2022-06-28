@@ -1,4 +1,4 @@
-class Quest:
+class QuestCard:
     def __init__(self):
         self.name = "The Walls of Blackstone"
         self.description = "Learn defensive techniques by helping the laborers of Blackstone School build a defensive structure of stone and metal."

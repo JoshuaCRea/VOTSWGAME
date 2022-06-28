@@ -26,11 +26,11 @@ class PlayerCharacter:
             f'CHI: {str(self.abilities["CHI"])}\n' +\
             f'WIT: {str(self.abilities["WIT"])}'
 
-    def embark_quest(self, quest):
-        if self._calculate_attempt_score(quest.step_one) >= quest.difficulty_class:
+    def embark_quest(self, quest_card):
+        if self._calculate_attempt_score(quest_card.step_one) >= quest_card.difficulty_class:
             print("SUCCESS Step One.")
-            if self._calculate_attempt_score(quest.step_two) >= quest.difficulty_class:
-                self._quest_won(quest.reward)
+            if self._calculate_attempt_score(quest_card.step_two) >= quest_card.difficulty_class:
+                self._quest_won(quest_card.reward)
                 return
         self._quest_failed()
 
