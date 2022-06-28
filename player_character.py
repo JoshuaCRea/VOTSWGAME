@@ -20,21 +20,30 @@ class PlayerCharacter:
             f'Reputation rank: {self.rep_rank}\n' +\
             f'Techniques: {self.techniques}\n' +\
             "Your abilities are:\n" +\
-            "STA: " + str(self.abilities["STA"]) + "\n" +\
-            "POW: " + str(self.abilities["POW"]) + "\n" +\
-            "AGI: " + str(self.abilities["AGI"]) + "\n" +\
-            "CHI: " + str(self.abilities["CHI"]) + "\n" +\
-            "WIT: " + str(self.abilities["WIT"])
+            f'STA: {str(self.abilities["STA"])}\n' +\
+            f'POW: {str(self.abilities["POW"])}\n' +\
+            f'AGI: {str(self.abilities["AGI"])}\n' +\
+            f'CHI: {str(self.abilities["CHI"])}\n' +\
+            f'WIT: {str(self.abilities["WIT"])}'
 
     def embark_quest(self, quest):
-        attempt1 = self.abilities[quest.step_one["abilities"][0]] + self.abilities[quest.step_one["abilities"][1]] + random.randint(1, 6)
-        if attempt1 >= quest.difficulty_class:
+        if self._calculate_attempt_score(quest.step_one) >= quest.difficulty_class:
             print("SUCCESS Step One.")
-            attempt2 = self.abilities[quest.step_two["abilities"][0]] + self.abilities[quest.step_two["abilities"][1]] + random.randint(1, 6)
-            if attempt2 >= quest.difficulty_class:
-                print("SUCCESS Step Two. Your reputation increased.")
-                self.rep_rank += 1
-                self.techniques.append(quest.reward)
+            if self._calculate_attempt_score(quest.step_two) >= quest.difficulty_class:
+                self._quest_won(quest.reward)
                 return
+        self._quest_failed()
+
+    def _calculate_attempt_score(self, quest_step):
+        return self.abilities[quest_step["abilities"][0]] +\
+               self.abilities[quest_step["abilities"][1]] +\
+               random.randint(1, 6)
+
+    def _quest_won(self, reward):
+        print("SUCCESS Step Two. Your reputation increased.")
+        self.rep_rank += 1
+        self.techniques.append(reward)
+
+    def _quest_failed(self):
         self.rep_rank -= 1
         print("You failed. Fuck you.")
