@@ -29,7 +29,6 @@ class PlayerCharacter:
             print("You are succeeding.")
             attempt2 = self.abilities[quest.step_two["abilities"][0]] + self.abilities[quest.step_two["abilities"][1]] + random.randint(1, 6)
             if attempt2 >= quest.difficulty_class:
-                quest.available = False
                 self.rep_rank += 1
                 print("You succeeded. Your reputation is increasing.")
                 return

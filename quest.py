@@ -1,13 +1,14 @@
 class Quest:
     def __init__(self):
-        self.name = "Catch a Chicken"
-        self.description = "Some old bitch lost one of her cuccos. She tasks you with chasing it down and bringing it back."
+        self.name = "The Walls of Blackstone"
+        self.description = "Learn defensive techniques by helping the laborers of Blackstone School build a defensive structure of stone and metal."
         self.step_one = {
-            "description": "Chase it down.",
-            "abilities": ("STA", "AGI")
+            "description": "Carry the heavy dark stones up the ladder to the top of the new outer wall around the school.",
+            "abilities": ("STA", "POW")
         }
         self.step_two = {
-            "description": "Keep it calm as you carry it back.",
-            "abilities": ("CHI", "WIT")
+            "description": "Practice defensive movements by spreading the mortar quickly in the hot dry sun, and putting the stones in place.",
+            "abilities": ("STA", "CHI")
         }
-        self.difficulty_class = 5
+        self.difficulty_class = 4
+        self.reward = "Stone Paw, Iron Beak"
