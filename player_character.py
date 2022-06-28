@@ -32,22 +32,6 @@ class PlayerCharacter:
                 quest.available = False
                 self.rep_rank += 1
                 print("You succeeded. Your reputation is increasing.")
-            else:
-                self.rep_rank -= 1
-                print("You failed. Fuck you.")
-        else:
-            self.rep_rank -= 1
-            print("You failed. Fuck you.")
-
-    def embark_quest(self, quest):
-        attempt1 = self.abilities[quest.stat1] + self.abilities[quest.stat2] + random.randint(1, 6)
-        if attempt1 >= quest.difficulty_class:
-            print("You are succeeding.")
-            attempt2 = self.abilities[quest.stat3] + self.abilities[quest.stat4] + random.randint(1, 6)
-            if attempt2 >= quest.difficulty_class:
-                quest.available = False
-                self.rep_rank += 1
-                print("You succeeded. Your reputation is increasing.")
                 return
         self.rep_rank -= 1
         print("You failed. Fuck you.")
