@@ -13,7 +13,7 @@ class QuestCard:
             "description": "Practice defensive movements by spreading the mortar quickly in the hot dry sun, and putting the stones in place.",
             "abilities": ("STA", "CHI")
         }
-        self.difficulty_class = 4
+        self.difficulty_class = 0 # TODO changed to 0 for testing removal of card from school
         self.rewards = {
             "technique": "Stone Paw, Iron Beak",
             "stat_bonus": None

@@ -27,6 +27,7 @@ class PlayerCharacter:
             f'WIT: {str(self.abilities["WIT"])}'
 
     def embark_quest(self, quest_card):
+        print(quest_card.__repr__) # TODO remove
         if self._calculate_attempt_score(quest_card.step_one) >= quest_card.difficulty_class:
             print("SUCCESS Step One.")
             if self._calculate_attempt_score(quest_card.step_two) >= quest_card.difficulty_class:
