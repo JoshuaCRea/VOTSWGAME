@@ -23,3 +23,7 @@ class QuestCard:
         return f'{self.name}\n{self.description}\n' +\
                f'STEP ONE: {self.step_one["description"]} {self.step_one["abilities"][0]} + {self.step_one["abilities"][1]}\n' +\
                f'STEP TWO: {self.step_two["description"]} {self.step_two["abilities"][0]} + {self.step_two["abilities"][1]}\n'
+
+    def get_preview_of_card(self):
+        abilities = [self.step_one["abilities"][0], self.step_one["abilities"][1], self.step_two["abilities"][0], self.step_two["abilities"][1]]
+        return f'{self.name}, {self.difficulty_class}, {abilities}, {self.rewards}'
