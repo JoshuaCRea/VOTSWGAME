@@ -7,7 +7,7 @@ from school import School
 if __name__ == '__main__':
     pc = PlayerCharacter("Blackstone")
     print(pc)
-    school = School()
+    school = School("School of Hong Quan")
 
     five_quest_cards = school.present_quest_cards()
     for card in five_quest_cards:
