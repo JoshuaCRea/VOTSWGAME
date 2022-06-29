@@ -1,22 +1,24 @@
 from uuid import uuid4
 
+from config import SCHOOL_NAME_QUEST_CARD_MAP
+
 
 class QuestCard:
-    def __init__(self):
-        self.name = f"The Walls of Blackstone - {str(uuid4())[:8]}"
-        self.description = "Learn defensive techniques by helping the laborers of Blackstone School build a defensive structure of stone and metal."
+    def __init__(self, school_name):
+        self.name = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["name"] + str(uuid4())[:8]
+        self.description = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["description"]
         self.step_one = {
-            "description": "Carry the heavy dark stones up the ladder to the top of the new outer wall around the school.",
-            "abilities": ("STA", "POW")
+            "description": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_one"]["description"],
+            "abilities": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_one"]["abilities"],
         }
         self.step_two = {
-            "description": "Practice defensive movements by spreading the mortar quickly in the hot dry sun, and putting the stones in place.",
-            "abilities": ("STA", "CHI")
+            "description": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_two"]["description"],
+            "abilities": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_two"]["abilities"],
         }
-        self.difficulty_class = 0 # TODO changed to 0 for testing removal of card from school
+        self.difficulty_class = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["difficulty_class"]
         self.rewards = {
-            "technique": "Stone Paw, Iron Beak",
-            "stat_bonus": None
+            "technique": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["rewards"]["technique"],
+            "stat_bonus": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["rewards"]["stat_bonus"]
         }
 
     def __str__(self):
