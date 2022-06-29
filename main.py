@@ -1,14 +1,21 @@
 from player_character import PlayerCharacter
+import random
 
-print("Welcome to The Valley of the Silver Wolf!")
-name = input("What is your name? ") #Enter 'Soomin' as name
-hometown = input("Which town of the Valley is your hometown? Blackstone, Fangmarsh, Leap-Creek, Pouch, or Underclaw? ")
+from school import School
 
-name = PlayerCharacter(name, hometown)
 
-print(name.STA)
-print(name.POW)
-print(name.AGI)
-print(name.CHI)
-print(name.WIT)
-print(name.name)
+if __name__ == '__main__':
+    pc = PlayerCharacter("Blackstone")
+    print(pc)
+    school = School()
+
+    five_quest_cards = school.present_quest_cards()
+    for card in five_quest_cards:
+        print(card.get_preview_of_card())
+
+    quest_card = random.choice(five_quest_cards)
+    print(quest_card.__repr__) # TODO remove
+    print(quest_card.get_preview_of_card())
+
+    pc.embark_quest(quest_card); print()
+    print(f'Rep rank: {pc.rep_rank}'); print(f'Techniques: {pc.techniques}')
