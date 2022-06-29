@@ -36,6 +36,14 @@ HOMETOWN_BASELINE_ABILITY_VALUES = {
     },
 }
 
+LOCATION_SCHOOL_MAP = {
+    "Blackstone": "School of Hong Quan",
+    "Fangmarsh": "Kwoon of Pai Tong Long",
+    "Leap-Creek": "Temple of T'ai Chi Ch'uan",
+    "Pouch": "School of Zui Quan",
+    "Underclaw": "Kwoon of Changquan",
+}
+
 SCHOOL_NAME_QUEST_CARD_MAP = {
     "School of Hong Quan" : {
         "name": "The Walls of Blackstone",

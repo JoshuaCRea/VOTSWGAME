@@ -3,7 +3,7 @@ import random
 
 
 class PlayerCharacter:
-    def __init__(self, hometown):
+    def __init__(self, hometown, event_observer):
         self.hp = 5
         self.rep_rank = 3
         self.abilities = {
@@ -14,6 +14,8 @@ class PlayerCharacter:
             "WIT": HOMETOWN_BASELINE_ABILITY_VALUES[hometown]["WIT"],
         }
         self.techniques = []
+        self.location = hometown
+        self.event_observer = event_observer
 
     def __str__(self):
         return \
@@ -27,9 +29,8 @@ class PlayerCharacter:
             f'WIT: {str(self.abilities["WIT"])}'
 
     def embark_quest(self, quest_card):
-        print(quest_card.__repr__) # TODO remove
         if self._calculate_attempt_score(quest_card.step_one) >= quest_card.difficulty_class:
-            print("SUCCESS Step One.")
+            self.event_observer.notify("You succeeded on the first step.")
             if self._calculate_attempt_score(quest_card.step_two) >= quest_card.difficulty_class:
                 self._quest_won(quest_card.rewards["technique"])
                 return
@@ -41,10 +42,10 @@ class PlayerCharacter:
                random.randint(1, 6)
 
     def _quest_won(self, technique):
-        print("SUCCESS Step Two. Your reputation increased.")
+        self.event_observer.notify(f'You succeeded on the second step. Your reputation increased and you acquired {technique}.')
         self.rep_rank += 1
         self.techniques.append(technique)
 
     def _quest_failed(self):
         self.rep_rank -= 1
-        print("You failed. Fuck you.")
+        self.event_observer.notify("You failed. Fuck you.")

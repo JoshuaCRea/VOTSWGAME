@@ -5,7 +5,7 @@ from config import SCHOOL_NAME_QUEST_CARD_MAP
 
 class QuestCard:
     def __init__(self, school_name):
-        self.name = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["name"] + str(uuid4())[:8]
+        self.name = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["name"] + f' {str(uuid4())[:8]}'
         self.description = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["description"]
         self.step_one = {
             "description": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_one"]["description"],
@@ -26,6 +26,6 @@ class QuestCard:
                f'STEP ONE: {self.step_one["description"]} {self.step_one["abilities"][0]} + {self.step_one["abilities"][1]}\n' +\
                f'STEP TWO: {self.step_two["description"]} {self.step_two["abilities"][0]} + {self.step_two["abilities"][1]}\n'
 
-    def get_preview_of_card(self):
+    def get_preview(self):
         abilities = [self.step_one["abilities"][0], self.step_one["abilities"][1], self.step_two["abilities"][0], self.step_two["abilities"][1]]
         return f'{self.name}, {self.difficulty_class}, {abilities}, {self.rewards}'
