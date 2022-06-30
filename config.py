@@ -57,7 +57,7 @@ SCHOOL_NAME_QUEST_CARD_MAP = {
             "description": "Practice defensive movements by spreading the mortar quickly in the hot dry sun, and putting the stones in place.",
             "abilities": ("STA", "CHI"),
         },
-        "difficulty_class": 0,
+        "difficulty_class": 5,
         "rewards": {
             "technique": "Stone Paw, Iron Beak",
             "stat_bonus": None

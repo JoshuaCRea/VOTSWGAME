@@ -32,7 +32,7 @@ class PlayerCharacter:
         if self._calculate_attempt_score(quest_card.step_one) >= quest_card.difficulty_class:
             self.event_observer.notify("You succeeded on the first step.")
             if self._calculate_attempt_score(quest_card.step_two) >= quest_card.difficulty_class:
-                self._quest_won(quest_card.rewards["technique"])
+                self._quest_won(quest_card)
                 return
         self._quest_failed()
 
@@ -41,10 +41,11 @@ class PlayerCharacter:
                self.abilities[quest_step["abilities"][1]] +\
                random.randint(1, 6)
 
-    def _quest_won(self, technique):
-        self.event_observer.notify(f'You succeeded on the second step. Your reputation increased and you acquired {technique}.')
+    def _quest_won(self, quest_card):
+        self.event_observer.notify(f'You succeeded on the second step. Your reputation increased and you acquired {quest_card.rewards["technique"]}.')
         self.rep_rank += 1
-        self.techniques.append(technique)
+        self.techniques.append(quest_card.rewards["technique"])
+        self.event_observer.discontinue_quest(self.location, quest_card)
 
     def _quest_failed(self):
         self.rep_rank -= 1
