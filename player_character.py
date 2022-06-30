@@ -46,6 +46,8 @@ class PlayerCharacter:
         self.rep_rank += 1
         self.techniques.append(quest_card.rewards["technique"])
         self.event_observer.discontinue_quest(self.location, quest_card)
+        if quest_card.rewards["stat_bonus"] != None:
+            self.abilities[quest_card.rewards["stat_bonus"]] += 1
 
     def _quest_failed(self):
         self.rep_rank -= 1
