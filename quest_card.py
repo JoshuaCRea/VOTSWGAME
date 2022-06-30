@@ -1,3 +1,4 @@
+import random
 from uuid import uuid4
 
 from config import SCHOOL_NAME_QUEST_CARD_MAP
@@ -7,6 +8,7 @@ class QuestCard:
     def __init__(self, school_name):
         self.name = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["name"] + f' {str(uuid4())[:8]}'
         self.description = SCHOOL_NAME_QUEST_CARD_MAP[school_name]["description"]
+        self.rep_req = random.choice([1, 3, 5]) # TODO will be replaced with actual values once CSV of card data is ready
         self.step_one = {
             "description": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_one"]["description"],
             "abilities": SCHOOL_NAME_QUEST_CARD_MAP[school_name]["step_one"]["abilities"],
@@ -28,4 +30,4 @@ class QuestCard:
 
     def get_preview(self):
         abilities = [self.step_one["abilities"][0], self.step_one["abilities"][1], self.step_two["abilities"][0], self.step_two["abilities"][1]]
-        return f'{self.name}, {self.difficulty_class}, {abilities}, {self.rewards}'
+        return f'{self.name}; Req: {self.rep_req}; DC: {self.difficulty_class}; {abilities}; T: {self.rewards["technique"]}; SB: {self.rewards["stat_bonus"]}'

@@ -47,6 +47,7 @@ LOCATION_SCHOOL_MAP = {
 SCHOOL_NAME_QUEST_CARD_MAP = {
     "School of Hong Quan" : {
         "name": "The Walls of Blackstone",
+        "rep_req" : 1,
         "description": "Learn defensive techniques by helping the laborers of Blackstone School build a defensive structure of stone and metal.",
         "step_one": {
             "description": "Carry the heavy dark stones up the ladder to the top of the new outer wall around the school.",
@@ -64,6 +65,7 @@ SCHOOL_NAME_QUEST_CARD_MAP = {
     },
     "Temple of T'ai Chi Ch'uan" : {
         "name": "The Water Temple",
+        "rep_req" : 1,
         "description": "Study with the monks the T'ai Chi Chuan basics to learn the skills you need to best your opponent using momentum and quick reaction.",
         "step_one": {
             "description": "Watch the way your movements effect your balance. Certain things about this study must be true of all men.",
@@ -81,6 +83,7 @@ SCHOOL_NAME_QUEST_CARD_MAP = {
     },
     "School of Zui Quan" : {
         "name": "School of Wine and Shadows",
+        "rep_req" : 1,
         "description": "Train with the Zui Quan students to learn the skills you need to take advantage of your opponent with unpredictability and deception.",
         "step_one": {
             "description": "To stumble is to outsmart. First learn how to deceive your opponent in games of Xiangqi. Lure and trap.",
@@ -98,6 +101,7 @@ SCHOOL_NAME_QUEST_CARD_MAP = {
     },
     "Kwoon of Pai Tong Long" : {
         "name": "The Nail and the Post",
+        "rep_req" : 1,
         "description": "Use your hands and fingers to yank a red hot nail out of a wooden post right outside the Kwoon.",
         "step_one": {
             "description": "Focus all your power into your hands... and YANK out the nail. Then watch the Kwoon master hold it over a fire before handing it back to you.",
@@ -115,6 +119,7 @@ SCHOOL_NAME_QUEST_CARD_MAP = {
     },
     "Kwoon of Changquan" : {
         "name": "Carve a New Path",
+        "rep_req" : 1,
         "description": "In order to make more room for new families coming to town, you help the townfolk in paving a new path in the cave to expand the community.",
         "step_one": {
             "description": "Balance on the slanted rock face and chizel into the stone walls to create a new path.",

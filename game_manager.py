@@ -12,12 +12,13 @@ class GameManager:
         self._setup_game()
 
     def _setup_game(self):
-        self.players.append(PlayerCharacter("Blackstone", self.display))
-        self.players.append(PlayerCharacter("Fangmarsh", self.display))
-        self.players.append(PlayerCharacter("Leap-Creek", self.display))
-        self.players.append(PlayerCharacter("Pouch", self.display))
-        self.players.append(PlayerCharacter("Underclaw", self.display))
-
+        self.players = [
+            PlayerCharacter("Blackstone", self.display),
+            PlayerCharacter("Fangmarsh", self.display),
+            PlayerCharacter("Leap-Creek", self.display),
+            PlayerCharacter("Pouch", self.display),
+            PlayerCharacter("Underclaw", self.display),
+        ]
         self.schools = {
             "Blackstone": School("School of Hong Quan"),
             "Fangmarsh": School("Temple of T'ai Chi Ch'uan"),
@@ -30,13 +31,18 @@ class GameManager:
         school = self.schools[player.location]
         random.shuffle(school.quest_cards)
         five_cards = school.quest_cards[:5]
+        filtered_cards = []
         for card in five_cards:
-            self.display.notify(card.get_preview())
-        return five_cards
+            if card.rep_req <= player.rep_rank:
+                filtered_cards.append(card)
+                self.display.notify(card.get_preview())
+        if len(filtered_cards) == 0:
+            raise Exception(f'Player cannot play any of the drawn cards because their repuation rank is too low (rep rank: {player.rep_rank}).')
+        return filtered_cards
 
     def select_card(self, cards):
         self.display.notify("Please select a card.")
-        selected_card_number = random.randint(0, 4) # TODO Ask for user input
+        selected_card_number = random.randint(0, len(cards) - 1)
         selected_card = cards[selected_card_number]
         self.display.notify(f'You selected {selected_card}')
         return selected_card
