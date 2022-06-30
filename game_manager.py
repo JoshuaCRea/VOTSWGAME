@@ -1,4 +1,5 @@
 import random
+from config import LOCATION_MAP
 from player_character import PlayerCharacter
 from school import School
 
@@ -64,3 +65,9 @@ class GameManager:
         for message in messages:
             print(message)
 
+    def move_player(self, player, direction):
+        start = LOCATION_MAP[player.location][1]
+        end = (start + direction) % len(LOCATION_MAP)
+        for key, value in LOCATION_MAP.items():
+            if value[1] == end:
+                player.location = key

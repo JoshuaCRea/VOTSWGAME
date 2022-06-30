@@ -136,3 +136,16 @@ SCHOOL_NAME_QUEST_CARD_MAP = {
         },
     },
 }
+
+LOCATION_MAP = {
+    "Blackstone": ["School of Hong Quan", 0],
+    "Fangmarsh": ["Kwoon of Pai Tong Long", 6],
+    "Leap-Creek": ["Temple of T'ai Chi Ch'uan", 2],
+    "Pouch": ["School of Zui Quan", 8],
+    "Underclaw": ["Kwoon of Changquan", 4],
+    "BSLC": [None, 1],
+    "LCUC": [None, 3],
+    "FMUC": [None, 5],
+    "FMP": [None, 7],
+    "PBS": [None, 9],
+}

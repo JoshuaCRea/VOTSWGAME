@@ -1,4 +1,5 @@
 from game_manager import GameManager
+from config import LOCATION_SCHOOL_MAP
 
 
 def test_player_wins():
@@ -49,3 +50,44 @@ def test_player_loses():
     assert len(gm.schools["Blackstone"].quest_cards) == 20
     assert player.rep_rank == 4
 
+
+def test_player_move_v1():
+    gm = GameManager()
+
+    player = gm.players[0]
+
+    gm.move_player(player, 1)
+
+    assert player.location == "BSLC"
+
+
+def test_player_move_v2():
+    gm = GameManager()
+
+    player = gm.players[0]
+    player.location = "PBS"
+
+    gm.move_player(player, 1)
+
+    assert player.location == "Blackstone"
+
+
+def test_player_move_v3():
+    gm = GameManager()
+
+    player = gm.players[0]
+
+    gm.move_player(player, -1)
+
+    assert player.location == "PBS"
+
+
+def test_player_move_v4():
+    gm = GameManager()
+
+    player = gm.players[0]
+    player.location = "PBS"
+
+    gm.move_player(player, -1)
+
+    assert player.location == "Pouch"
