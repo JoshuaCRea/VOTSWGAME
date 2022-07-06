@@ -36,3 +36,15 @@
     border-style: solid;
     border-color: #00ff22;
 }
+
+.mountain {
+    border-radius: 100%;
+    text-align: center;
+    width: 75px;
+    height: 75px;
+    background-color: #ffffff;
+    line-height: 75px;
+    border-style: dashed;
+    border-color: #0000ff;
+
+}
