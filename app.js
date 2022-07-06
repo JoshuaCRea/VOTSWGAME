@@ -1,4 +1,3 @@
-$(".my-button").click(function () {
-    var text = "foo";
-    $("#townB").html(text);
+$(".move-button").click(function () {
+    $("#townB").css('background-color', '#f8cf95');
 })
