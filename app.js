@@ -25,10 +25,11 @@ function updateLocationIndex(directionValue) {
     }
 }
 
-function updateLocationColors(occupiedLocationId) {
+function updateLocationColors() {
+    occupiedLocationId = LOCATION_IDS[currentLocationIndex]
     $(".town").css('background-color', UNOCCUPIED_LOCATION_COLOR);
     $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
-    $(occupiedLocationId).css('background-color', OCCUPIED_LOCATION_COLOR);
+    $(occupiedLocationId).css('background-color', OCCUPIED_LOCATION_COLOR); 
 }
 
 function updateTownInfo(){
@@ -41,12 +42,12 @@ function updateTownInfo(){
 
 $("#moveCwButton").click(function () {
     updateLocationIndex(CW_DIR_VALUE);
-    updateLocationColors(LOCATION_IDS[currentLocationIndex]);
+    updateLocationColors();
     updateTownInfo();
 })
 
 $("#moveCcwButton").click(function () {
     updateLocationIndex(CCW_DIR_VALUE);
-    updateLocationColors(LOCATION_IDS[currentLocationIndex]);
+    updateLocationColors();
     updateTownInfo();
 })
