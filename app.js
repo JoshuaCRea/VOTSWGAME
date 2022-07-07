@@ -16,23 +16,17 @@ $(LOCATION_IDS[currentLocationIndex]).css('background-color', OCCUPIED_LOCATION_
 $("#towninfo").html("The Valley of the Star")
 
 function updateLocationIndex(directionValue) {
-    currentLocationIndex = currentLocationIndex + directionValue;
-    if (currentLocationIndex == LOCATION_IDS.length) {
-        currentLocationIndex = 0;
-    }
-    if (currentLocationIndex == -1) {
-        currentLocationIndex = LOCATION_IDS.length - 1;
-    }
+    currentLocationIndex = (((currentLocationIndex + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
 }
 
 function updateLocationColors() {
-    occupiedLocationId = LOCATION_IDS[currentLocationIndex]
+    var occupiedLocationId = LOCATION_IDS[currentLocationIndex]
     $(".town").css('background-color', UNOCCUPIED_LOCATION_COLOR);
     $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
     $(occupiedLocationId).css('background-color', OCCUPIED_LOCATION_COLOR); 
 }
 
-function updateTownInfo(){
+function updateTownInfo() {
     var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[currentLocationIndex]]
     if (locationDescription == undefined) {
         locationDescription = "The Valley of the Star"
