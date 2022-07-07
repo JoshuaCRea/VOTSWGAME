@@ -42,18 +42,6 @@
     grid-gap: 5rem;
     grid-template-rows: 50px 50px 50px;
     grid-template-columns: 50px 50px 50px;
-    font-size: x-small;
-}
-
-.town {
-    border-radius: 100%;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    background-color: #ffffff;
-    line-height: 50px;
-    border-style: dashed;
-    border-color: #dc143c;
 }
 
 .button {
@@ -62,13 +50,22 @@
     line-height: 50px;
 }
 
-.road {
+.location {
     border-radius: 100%;
     text-align: center;
     width: 50px;
     height: 50px;
     background-color: #ffffff;
     line-height: 50px;
+    font-size: x-small;
+}
+
+.location.town {
+    border-style: dashed;
+    border-color: #dc143c;
+}
+
+.location.road {
     border-style: solid;
     border-color: #00ff22;
 }
