@@ -35,14 +35,18 @@ function updateLocationColors(occupiedLocationId) {
     $(occupiedLocationId).css('background-color', OCCUPIED_LOCATION_COLOR);
 }
 
+function updateTownInfo(){
+    $("#towninfo").html(TOWN_DESCRIPTIONS[LOCATION_IDS[currentLocationIndex]])
+}
+
 $("#moveCwButton").click(function () {
     updateLocationIndex(CW_DIR_VALUE);
     updateLocationColors(LOCATION_IDS[currentLocationIndex]);
-    $("#towninfo").html(TOWN_DESCRIPTIONS[LOCATION_IDS[currentLocationIndex]])
+    updateTownInfo();
 })
 
 $("#moveCcwButton").click(function () {
     updateLocationIndex(CCW_DIR_VALUE);
     updateLocationColors(LOCATION_IDS[currentLocationIndex]);
-    $("#towninfo").html(TOWN_DESCRIPTIONS[LOCATION_IDS[currentLocationIndex]])
+    updateTownInfo();
 })
