@@ -1,6 +1,6 @@
 from config import HOMETOWN_BASELINE_ABILITY_VALUES
 import random
-
+from config import LOCATION_MAP
 
 class PlayerCharacter:
     def __init__(self, hometown, event_observer):
@@ -52,3 +52,10 @@ class PlayerCharacter:
     def _quest_failed(self):
         self.rep_rank -= 1
         self.event_observer.notify("You failed. Fuck you.")
+
+    def move_player(self, direction):
+        start = LOCATION_MAP[self.location][1]
+        end = (start + direction) % len(LOCATION_MAP)
+        for key, value in LOCATION_MAP.items():
+            if value[1] == end:
+                self.location = key
