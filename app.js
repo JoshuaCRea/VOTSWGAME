@@ -6,6 +6,12 @@ const CCW_DIR_VALUE = -1
 const TOWN_DESCRIPTIONS = {
     "#Leap-Creek": "The Water Temple",
     "#Blackstone": "The Iron Fortress",
+    "#Fangmarsh": "The Burning Bog",
+    "#Underclaw": "The Hidden City",
+    "#roadAB": "The Valley of the Star",
+    "#roadBD": "The Valley of the Star",
+    "#roadCD": "The Valley of the Star",
+    "#roadAC": "The Valley of the Star",
 }
 
 var currentLocationIndex = 1;
