@@ -8,10 +8,6 @@ const TOWN_DESCRIPTIONS = {
     "#Blackstone": "The Iron Fortress",
     "#Fangmarsh": "The Burning Bog",
     "#Underclaw": "The Hidden City",
-    "#roadAB": "The Valley of the Star",
-    "#roadBD": "The Valley of the Star",
-    "#roadCD": "The Valley of the Star",
-    "#roadAC": "The Valley of the Star",
 }
 
 var currentLocationIndex = 1;
@@ -36,7 +32,11 @@ function updateLocationColors(occupiedLocationId) {
 }
 
 function updateTownInfo(){
-    $("#towninfo").html(TOWN_DESCRIPTIONS[LOCATION_IDS[currentLocationIndex]])
+    var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[currentLocationIndex]]
+    if (locationDescription == undefined) {
+        locationDescription = "The Valley of the Star"
+    }
+    $("#towninfo").html(locationDescription)
 }
 
 $("#moveCwButton").click(function () {
