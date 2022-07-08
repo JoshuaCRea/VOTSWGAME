@@ -1,8 +1,4 @@
 const LOCATION_IDS = ["#Leap-Creek", "#roadAB", "#Blackstone", "#roadBD", "#Fangmarsh", "#roadCD", "#Underclaw", "#roadAC"];
-const PLAYER1_OCCUPIED_LOCATION_COLOR = '#fff700';
-const PLAYER2_OCCUPIED_LOCATION_COLOR = '#0011ff';
-const PLAYER3_OCCUPIED_LOCATION_COLOR = '#dc143c';
-const PLAYER4_OCCUPIED_LOCATION_COLOR = '#270a47';
 const MULTIPLE_PLAYER_OCCUPIED_LOCATION_COLOR = '#025b0e';
 const UNOCCUPIED_LOCATION_COLOR = '#ffffff';
 const CW_DIR_VALUE = 1
@@ -14,46 +10,49 @@ const TOWN_DESCRIPTIONS = {
     "#Underclaw": "The Hidden City",
 }
 
-var p1CurrentLocationIndex = 1;
-var p2CurrentLocationIndex = 5;
-var p3CurrentLocationIndex = 3;
-var p4CurrentLocationIndex = 7;
+var playerInfo = {
+    "p1": {
+        "color": "#fff700",
+        "locationIndex": 1,
+    },
+    "p2": {
+        "color": "#0011ff",
+        "locationIndex": 5,
+    },
+    "p3": {
+        "color": "#dc143c",
+        "locationIndex": 3,
+    },
+    "p4": {
+        "color": "#270a47",
+        "locationIndex": 7,
+    },
+}
 
-$(LOCATION_IDS[p1CurrentLocationIndex]).css('background-color', PLAYER1_OCCUPIED_LOCATION_COLOR);
-$(LOCATION_IDS[p2CurrentLocationIndex]).css('background-color', PLAYER2_OCCUPIED_LOCATION_COLOR);
-$(LOCATION_IDS[p3CurrentLocationIndex]).css('background-color', PLAYER3_OCCUPIED_LOCATION_COLOR);
-$(LOCATION_IDS[p4CurrentLocationIndex]).css('background-color', PLAYER4_OCCUPIED_LOCATION_COLOR);
+$(LOCATION_IDS[playerInfo["p1"]["locationIndex"]]).css('background-color', [playerInfo["p1"]["color"]]);
+$(LOCATION_IDS[playerInfo["p2"]["locationIndex"]]).css('background-color', [playerInfo["p2"]["color"]]);
+$(LOCATION_IDS[playerInfo["p3"]["locationIndex"]]).css('background-color', [playerInfo["p3"]["color"]]);
+$(LOCATION_IDS[playerInfo["p4"]["locationIndex"]]).css('background-color', [playerInfo["p4"]["color"]]);
 $("#towninfo").html("The Valley of the Star")
 
 function updateLocationIndex(directionValue, player) {
-    if (player == "p1") {
-        p1CurrentLocationIndex = (((p1CurrentLocationIndex + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
-    }
-    if (player == "p2") {
-        p2CurrentLocationIndex = (((p2CurrentLocationIndex + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
-    }
-    if (player == "p3") {
-        p3CurrentLocationIndex = (((p3CurrentLocationIndex + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
-    }
-    if (player == "p4") {
-        p4CurrentLocationIndex = (((p4CurrentLocationIndex + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
-    }
+    playerInfo[player]["locationIndex"] = (((playerInfo[player]["locationIndex"] + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
 }
 
 function updateLocationColors() {
     $(".town").css('background-color', UNOCCUPIED_LOCATION_COLOR);
     $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
 
-    var p1OccupiedLocationId = LOCATION_IDS[p1CurrentLocationIndex]
-    var p2OccupiedLocationId = LOCATION_IDS[p2CurrentLocationIndex]
-    var p3OccupiedLocationId = LOCATION_IDS[p3CurrentLocationIndex]
-    var p4OccupiedLocationId = LOCATION_IDS[p4CurrentLocationIndex]
+    var p1OccupiedLocationId = LOCATION_IDS[playerInfo["p1"]["locationIndex"]]
+    var p2OccupiedLocationId = LOCATION_IDS[playerInfo["p2"]["locationIndex"]]
+    var p3OccupiedLocationId = LOCATION_IDS[playerInfo["p3"]["locationIndex"]]
+    var p4OccupiedLocationId = LOCATION_IDS[playerInfo["p4"]["locationIndex"]]
     var playerLocationIds = [p1OccupiedLocationId, p2OccupiedLocationId, p3OccupiedLocationId, p4OccupiedLocationId]
 
-    $(p1OccupiedLocationId).css('background-color', PLAYER1_OCCUPIED_LOCATION_COLOR);
-    $(p2OccupiedLocationId).css('background-color', PLAYER2_OCCUPIED_LOCATION_COLOR);
-    $(p3OccupiedLocationId).css('background-color', PLAYER3_OCCUPIED_LOCATION_COLOR);
-    $(p4OccupiedLocationId).css('background-color', PLAYER4_OCCUPIED_LOCATION_COLOR);
+    $(p1OccupiedLocationId).css('background-color', playerInfo["p1"]["color"]);
+    $(p2OccupiedLocationId).css('background-color', playerInfo["p2"]["color"]);
+    $(p3OccupiedLocationId).css('background-color', playerInfo["p3"]["color"]);
+    $(p4OccupiedLocationId).css('background-color', playerInfo["p4"]["color"]);
 
     LOCATION_IDS.forEach(locationId => {
         var counter = 0;
@@ -69,7 +68,7 @@ function updateLocationColors() {
 }
 
 function updateTownInfo() {
-    var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[p1CurrentLocationIndex]]
+    var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[playerInfo["p1"]["locationIndex"]]]
     if (locationDescription == undefined) {
         locationDescription = "The Valley of the Star"
     }
