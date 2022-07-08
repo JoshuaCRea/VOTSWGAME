@@ -14,27 +14,30 @@ var playerInfo = {
     "p1": {
         "color": "#fff700",
         "locationIndex": 1,
+        "townInfoId": "#p1TownInfo",
     },
     "p2": {
         "color": "#0011ff",
         "locationIndex": 5,
+        "townInfoId": "#p2TownInfo",
     },
     "p3": {
         "color": "#dc143c",
         "locationIndex": 3,
+        "townInfoId": "#p3TownInfo",
     },
     "p4": {
         "color": "#270a47",
         "locationIndex": 7,
+        "townInfoId": "#p4TownInfo",
     },
 }
 
 onPageLoad()
 
 function onPageLoad() {
-    Object.keys(playerInfo).forEach(player =>
-        $(LOCATION_IDS[playerInfo[player]["locationIndex"]]).css('background-color', playerInfo[player]["color"]))
-    $("#towninfo").html("The Valley of the Star")
+    setLocationColorBasedOnOccupancy();
+    updateTownInfo();
 }
 
 function updateLocationIndex(directionValue, player) {
@@ -44,10 +47,9 @@ function updateLocationIndex(directionValue, player) {
 }
 
 function updateLocationColors() {
-    resetColors();
+    resetToDefaultColors();
 
-    Object.keys(playerInfo).forEach(player =>
-        $(LOCATION_IDS[playerInfo[player]["locationIndex"]]).css('background-color', playerInfo[player]["color"]))
+    setLocationColorBasedOnOccupancy();
 
     LOCATION_IDS.forEach(locationId => {
         var counter = 0;
@@ -63,16 +65,23 @@ function updateLocationColors() {
 }
 
 function updateTownInfo() {
-    var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[playerInfo["p1"]["locationIndex"]]]
-    if (locationDescription == undefined) {
-        locationDescription = "The Valley of the Star"
-    }
-    $("#towninfo").html(locationDescription)
+    Object.keys(playerInfo).forEach(player => {
+        var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[playerInfo[player]["locationIndex"]]]
+        if (locationDescription == undefined) {
+            locationDescription = "The Valley of the Star"
+        }
+        $(playerInfo[player]["townInfoId"]).html(locationDescription)
+    })
 }
 
-function resetColors() {
+function resetToDefaultColors() {
     $(".town").css('background-color', UNOCCUPIED_LOCATION_COLOR);
     $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
+}
+
+function setLocationColorBasedOnOccupancy() {
+    Object.keys(playerInfo).forEach(player =>
+        $(LOCATION_IDS[playerInfo[player]["locationIndex"]]).css('background-color', playerInfo[player]["color"]))
 }
 
 $("#p1MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p1"); })
