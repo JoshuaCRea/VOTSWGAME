@@ -15,13 +15,6 @@ const TOWN_DESCRIPTIONS = {
 var p1CurrentLocationIndex = 1;
 var p2CurrentLocationIndex = 5;
 
-var PLAYER_location_INDICES = {
-    "1": 1,
-    "2": 5,
-}
-
-// PLAYER_INDICES dict - key could be subbed for LOCAtiON_IDS[p#CurrentLocationIndex]
-
 $(LOCATION_IDS[p1CurrentLocationIndex]).css('background-color', PLAYER1_OCCUPIED_LOCATION_COLOR);
 $(LOCATION_IDS[p2CurrentLocationIndex]).css('background-color', PLAYER2_OCCUPIED_LOCATION_COLOR);
 $("#towninfo").html("The Valley of the Star")
