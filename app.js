@@ -16,7 +16,7 @@ const TOWN_DESCRIPTIONS = {
 
 var p1CurrentLocationIndex = 1;
 var p2CurrentLocationIndex = 5;
-var p3CurrentLocationIndex = 3; 
+var p3CurrentLocationIndex = 3;
 var p4CurrentLocationIndex = 7;
 
 $(LOCATION_IDS[p1CurrentLocationIndex]).css('background-color', PLAYER1_OCCUPIED_LOCATION_COLOR);
@@ -41,20 +41,31 @@ function updateLocationIndex(directionValue, player) {
 }
 
 function updateLocationColors() {
+    $(".town").css('background-color', UNOCCUPIED_LOCATION_COLOR);
+    $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
+
     var p1OccupiedLocationId = LOCATION_IDS[p1CurrentLocationIndex]
     var p2OccupiedLocationId = LOCATION_IDS[p2CurrentLocationIndex]
     var p3OccupiedLocationId = LOCATION_IDS[p3CurrentLocationIndex]
     var p4OccupiedLocationId = LOCATION_IDS[p4CurrentLocationIndex]
-    $(".town").css('background-color', UNOCCUPIED_LOCATION_COLOR);
-    $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
-    if (p1OccupiedLocationId == p2OccupiedLocationId) {
-        $(p2OccupiedLocationId).css('background-color', MULTIPLE_PLAYER_OCCUPIED_LOCATION_COLOR);
-    } else {
-        $(p1OccupiedLocationId).css('background-color', PLAYER1_OCCUPIED_LOCATION_COLOR);
-        $(p2OccupiedLocationId).css('background-color', PLAYER2_OCCUPIED_LOCATION_COLOR);
-        $(p3OccupiedLocationId).css('background-color', PLAYER3_OCCUPIED_LOCATION_COLOR);
-        $(p4OccupiedLocationId).css('background-color', PLAYER4_OCCUPIED_LOCATION_COLOR);
-    }  
+    var playerLocationIds = [p1OccupiedLocationId, p2OccupiedLocationId, p3OccupiedLocationId, p4OccupiedLocationId]
+
+    $(p1OccupiedLocationId).css('background-color', PLAYER1_OCCUPIED_LOCATION_COLOR);
+    $(p2OccupiedLocationId).css('background-color', PLAYER2_OCCUPIED_LOCATION_COLOR);
+    $(p3OccupiedLocationId).css('background-color', PLAYER3_OCCUPIED_LOCATION_COLOR);
+    $(p4OccupiedLocationId).css('background-color', PLAYER4_OCCUPIED_LOCATION_COLOR);
+
+    LOCATION_IDS.forEach(locationId => {
+        var counter = 0;
+        playerLocationIds.forEach(playerLocationId => {
+            if (playerLocationId == locationId) {
+                counter++;
+            }
+        })
+        if (counter > 1) {
+            $(locationId).css('background-color', MULTIPLE_PLAYER_OCCUPIED_LOCATION_COLOR)
+        }
+    })
 }
 
 function updateTownInfo() {
