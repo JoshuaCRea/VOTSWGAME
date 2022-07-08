@@ -39,6 +39,8 @@ function onPageLoad() {
 
 function updateLocationIndex(directionValue, player) {
     playerInfo[player]["locationIndex"] = (((playerInfo[player]["locationIndex"] + directionValue) % LOCATION_IDS.length) + LOCATION_IDS.length) % LOCATION_IDS.length;
+    updateLocationColors();
+    updateTownInfo();
 }
 
 function updateLocationColors() {
@@ -73,50 +75,14 @@ function resetColors() {
     $(".road").css('background-color', UNOCCUPIED_LOCATION_COLOR);
 }
 
-$("#p1MoveCwButton").click(function () {
-    updateLocationIndex(CW_DIR_VALUE, "p1");
-    updateLocationColors();
-    updateTownInfo();
-})
+$("#p1MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p1"); })
+$("#p1MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p1"); })
 
-$("#p1MoveCcwButton").click(function () {
-    updateLocationIndex(CCW_DIR_VALUE, "p1");
-    updateLocationColors();
-    updateTownInfo();
-})
+$("#p2MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p2"); })
+$("#p2MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p2"); })
 
-$("#p2MoveCwButton").click(function () {
-    updateLocationIndex(CW_DIR_VALUE, "p2");
-    updateLocationColors();
-    updateTownInfo();
-})
+$("#p3MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p3"); })
+$("#p3MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p3"); })
 
-$("#p2MoveCcwButton").click(function () {
-    updateLocationIndex(CCW_DIR_VALUE, "p2");
-    updateLocationColors();
-    updateTownInfo();
-})
-
-$("#p3MoveCwButton").click(function () {
-    updateLocationIndex(CW_DIR_VALUE, "p3");
-    updateLocationColors();
-    updateTownInfo();
-})
-
-$("#p3MoveCcwButton").click(function () {
-    updateLocationIndex(CCW_DIR_VALUE, "p3");
-    updateLocationColors();
-    updateTownInfo();
-})
-
-$("#p4MoveCwButton").click(function () {
-    updateLocationIndex(CW_DIR_VALUE, "p4");
-    updateLocationColors();
-    updateTownInfo();
-})
-
-$("#p4MoveCcwButton").click(function () {
-    updateLocationIndex(CCW_DIR_VALUE, "p4");
-    updateLocationColors();
-    updateTownInfo();
-})
+$("#p4MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p4"); })
+$("#p4MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p4"); })
