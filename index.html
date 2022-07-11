@@ -10,130 +10,135 @@
 </head>
 
 <body>
-    <div class="map"> 
+    <div class="map">
         <div class="location town leapcreek" id="Leap-Creek">
-          Leap-Creek 
-        </div> 
-        <div class="location road roadLCBS" id="roadLCBS">
-          road
-        </div> 
-        <div class="location town blackstone" id="Blackstone">
-          Blackstone
-        </div> 
-        <div class="location road roadBSFM" id="roadBSFM">
-          road 
-        </div> 
-        <div class="location town fangmarsh" id="Fangmarsh">
-          Fangmarsh 
-        </div> 
-        <div class="location road roadFMUC" id="roadFMUC">
-          road
-        </div> 
-        <div class="location town underclaw" id="Underclaw">
-          Underclaw 
-        </div> 
-        <div class="location road roadUCP" id="roadUCP">
-          road 
-        </div>
-        <div class="location town pouch" id="Pouch">
-            Pouch 
-        </div> 
-        <div class="location road roadPLC" id="roadPLC">
-            road 
-        </div> 
-       </div>
-       <div class="mountain">
-        MOUNTAIN
-        </div>
-    <!-- <div class="map">
-        <div class="location town" id="Leap-Creek">
             Leap-Creek
         </div>
-        <div class="location road" id="roadAB">
+        <div class="location road roadLCBS" id="roadLCBS">
             road
         </div>
-        <div class="location town" id="Blackstone">
+        <div class="location town blackstone" id="Blackstone">
             Blackstone
         </div>
-        <div class="location road" id="roadAC">
+        <div class="location road roadBSFM" id="roadBSFM">
             road
         </div>
-        
-        <div class="location road" id="roadBD">
-            road
-        </div>
-        <div class="location town" id="Underclaw">
-            Underclaw
-        </div>
-        <div class="location road" id="roadCD">
-            road
-        </div>
-        <div class="location town" id="Fangmarsh">
+        <div class="location town fangmarsh" id="Fangmarsh">
             Fangmarsh
         </div>
-    </div> -->
-    <div class="move-button" id="p1MoveCwButton">
-        <button>P1 Move CW</button>
+        <div class="location road roadFMUC" id="roadFMUC">
+            road
+        </div>
+        <div class="location town underclaw" id="Underclaw">
+            Underclaw
+        </div>
+        <div class="location road roadUCP" id="roadUCP">
+            road
+        </div>
+        <div class="location town pouch" id="Pouch">
+            Pouch
+        </div>
+        <div class="location road roadPLC" id="roadPLC">
+            road
+        </div>
     </div>
-    <div class="move-button" id="p1MoveCcwButton">
-        <button>P1 Move CCW</button>
-    </div>
-    <div class="move-button" id="p2MoveCwButton">
-        <button>P2 Move CW</button>
-    </div>
-    <div class="move-button" id="p2MoveCcwButton">
-        <button>P2 Move CCW</button>
-    </div>
-    <div class="move-button" id="p3MoveCwButton">
-        <button>P3 Move CW</button>
-    </div>
-    <div class="move-button" id="p3MoveCcwButton">
-        <button>P3 Move CCW</button>
-    </div>
-    <div class="move-button" id="p4MoveCwButton">
-        <button>P4 Move CW</button>
-    </div>
-    <div class="move-button" id="p4MoveCcwButton">
-        <button>P4 Move CCW</button>
-    </div>
-    <div class="move-button" id="p5MoveCwButton">
-        <button>P5 Move CW</button>
-    </div>
-    <div class="move-button" id="p5MoveCcwButton">
-        <button>P5 Move CCW</button>
-    </div>
+
     <table>
         <tr>
-          <th>Player</th>
-          <th>Town Info</th>
-          <th>School</th>
+            <th>P1</th>
+            <th>P2</th>
+            <th>P3</th>
+            <th>P4</th>
+            <th>P5</th>
         </tr>
         <tr>
-          <td>P1</td>
-          <td id="p1TownInfo"></td>
-          <td id="p1TownSchool"></td>
+            <td>
+                <div class="move-button" id="p1MoveCwButton">
+                    <button>Move CW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p2MoveCwButton">
+                    <button>Move CW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p3MoveCwButton">
+                    <button>Move CW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p4MoveCwButton">
+                    <button>Move CW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p5MoveCwButton">
+                    <button>Move CW</button>
+                </div>
+            </td>
         </tr>
         <tr>
-          <td>P2</td>
-          <td id="p2TownInfo"></td>
-          <td id="p2TownSchool"></td>
+            <td>
+                <div class="move-button" id="p1MoveCcwButton">
+                    <button>Move CCW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p2MoveCcwButton">
+                    <button>Move CCW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p3MoveCcwButton">
+                    <button>Move CCW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p4MoveCcwButton">
+                    <button>Move CCW</button>
+                </div>
+            </td>
+            <td>
+                <div class="move-button" id="p5MoveCcwButton">
+                    <button>Move CCW</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>Town Info</th>
+            <th>School</th>
+        </tr>
+        <tr>
+            <td>P1</td>
+            <td id="p1TownInfo"></td>
+            <td id="p1TownSchool"></td>
+        </tr>
+        <tr>
+            <td>P2</td>
+            <td id="p2TownInfo"></td>
+            <td id="p2TownSchool"></td>
         </tr>
         <tr>
             <td>P3</td>
             <td id="p3TownInfo"></td>
             <td id="p3TownSchool"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>P4</td>
             <td id="p4TownInfo"></td>
             <td id="p4TownSchool"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>P5</td>
             <td id="p5TownInfo"></td>
             <td id="p5TownSchool"></td>
-          </tr>
-      </table>
+        </tr>
+    </table>
 </body>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
