@@ -10,38 +10,41 @@
 </head>
 
 <body>
-    <div class="circle-wrapper"> 
-        <div class="circle leapcreek">
+    <div class="map"> 
+        <div class="location town leapcreek" id="Leap-Creek">
           Leap-Creek 
         </div> 
-        <div class="circle road roadLCBS">
+        <div class="location road roadLCBS" id="roadLCBS">
           road
         </div> 
-        <div class="circle blackstone">
+        <div class="location town blackstone" id="Blackstone">
           Blackstone
         </div> 
-        <div class="circle road roadBSFM">
+        <div class="location road roadBSFM" id="roadBSFM">
           road 
         </div> 
-        <div class="circle fangmarsh">
+        <div class="location town fangmarsh" id="Fangmarsh">
           Fangmarsh 
         </div> 
-        <div class="circle road roadFMUC">
+        <div class="location road roadFMUC" id="roadFMUC">
           road
         </div> 
-        <div class="circle underclaw">
+        <div class="location town underclaw" id="Underclaw">
           Underclaw 
         </div> 
-        <div class="circle road roadUCP">
+        <div class="location road roadUCP" id="roadUCP">
           road 
         </div>
-        <div class="circle pouch">
+        <div class="location town pouch" id="Pouch">
             Pouch 
         </div> 
-        <div class="circle road roadPLC">
+        <div class="location road roadPLC" id="roadPLC">
             road 
         </div> 
        </div>
+       <div class="mountain">
+        MOUNTAIN
+        </div>
     <!-- <div class="map">
         <div class="location town" id="Leap-Creek">
             Leap-Creek
@@ -55,9 +58,7 @@
         <div class="location road" id="roadAC">
             road
         </div>
-        <div class="mountain">
-            MOUNTAIN
-        </div>
+        
         <div class="location road" id="roadBD">
             road
         </div>
@@ -70,7 +71,7 @@
         <div class="location town" id="Fangmarsh">
             Fangmarsh
         </div>
-    </div>
+    </div> -->
     <div class="move-button" id="p1MoveCwButton">
         <button>P1 Move CW</button>
     </div>
@@ -94,7 +95,13 @@
     </div>
     <div class="move-button" id="p4MoveCcwButton">
         <button>P4 Move CCW</button>
-    </div> -->
+    </div>
+    <div class="move-button" id="p5MoveCwButton">
+        <button>P5 Move CW</button>
+    </div>
+    <div class="move-button" id="p5MoveCcwButton">
+        <button>P5 Move CCW</button>
+    </div>
     <table>
         <tr>
           <th>Player</th>
@@ -120,6 +127,11 @@
             <td>P4</td>
             <td id="p4TownInfo"></td>
             <td id="p4TownSchool"></td>
+          </tr>
+          <tr>
+            <td>P5</td>
+            <td id="p5TownInfo"></td>
+            <td id="p5TownSchool"></td>
           </tr>
       </table>
 </body>

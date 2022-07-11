@@ -1,6 +1,6 @@
-const LOCATION_IDS = ["#Leap-Creek", "#roadAB", "#Blackstone", "#roadBD", "#Fangmarsh", "#roadCD", "#Underclaw", "#roadAC"];
-const MULTIPLE_PLAYER_OCCUPIED_LOCATION_COLOR = '#025b0e';
-const UNOCCUPIED_LOCATION_COLOR = '#ffffff';
+const LOCATION_IDS = ["#Leap-Creek", "#roadLCBS", "#Blackstone", "#roadBSFM", "#Fangmarsh", "#roadFMUC", "#Underclaw", "#roadUCP", "#Pouch", "#roadPLC"];
+const MULTIPLE_PLAYER_OCCUPIED_LOCATION_COLOR = '#fff700';
+const UNOCCUPIED_LOCATION_COLOR = 'rgb(165, 143, 106)';
 const CW_DIR_VALUE = 1
 const CCW_DIR_VALUE = -1
 const TOWN_DESCRIPTIONS = {
@@ -8,28 +8,34 @@ const TOWN_DESCRIPTIONS = {
     "#Blackstone": "The Iron Fortress",
     "#Fangmarsh": "The Burning Bog",
     "#Underclaw": "The Hidden City",
+    "#Pouch": "Forest of Wine and Shadow"
 }
 
 var playerInfo = {
     "p1": {
-        "color": "#fff700",
-        "locationIndex": 1,
+        "color": "aqua",
+        "locationIndex": 0,
         "townInfoId": "#p1TownInfo",
     },
     "p2": {
-        "color": "#0011ff",
-        "locationIndex": 5,
+        "color": "gray",
+        "locationIndex": 2,
         "townInfoId": "#p2TownInfo",
     },
     "p3": {
-        "color": "#dc143c",
-        "locationIndex": 3,
+        "color": "crimson",
+        "locationIndex": 4,
         "townInfoId": "#p3TownInfo",
     },
     "p4": {
-        "color": "#270a47",
-        "locationIndex": 7,
+        "color": "green",
+        "locationIndex": 6,
         "townInfoId": "#p4TownInfo",
+    },
+    "p5": {
+        "color": "blueviolet",
+        "locationIndex": 8,
+        "townInfoId": "#p5TownInfo",
     },
 }
 
@@ -95,3 +101,6 @@ $("#p3MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p3
 
 $("#p4MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p4"); })
 $("#p4MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p4"); })
+
+$("#p5MoveCwButton").click(function () { updateLocationIndex(CW_DIR_VALUE, "p5"); })
+$("#p5MoveCcwButton").click(function () { updateLocationIndex(CCW_DIR_VALUE, "p5"); })
