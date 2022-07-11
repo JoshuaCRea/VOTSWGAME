@@ -4,11 +4,26 @@ const UNOCCUPIED_LOCATION_COLOR = 'rgb(165, 143, 106)';
 const CW_DIR_VALUE = 1
 const CCW_DIR_VALUE = -1
 const TOWN_DESCRIPTIONS = {
-    "#Leap-Creek": "The Water Temple",
-    "#Blackstone": "The Iron Fortress",
-    "#Fangmarsh": "The Burning Bog",
-    "#Underclaw": "The Hidden City",
-    "#Pouch": "Forest of Wine and Shadow"
+    "#Leap-Creek": {
+        "Nickname": "The Water Temple",
+        "School name": "Temple of T'ai Chi Chuan",
+    },
+    "#Blackstone": {
+        "Nickname": "The Iron Fortress",
+        "School name": "School of Hong Quan",
+    },
+    "#Fangmarsh": {
+        "Nickname": "The Bog That Burns",
+        "School name": "Kwoon of Pai Tong Long",
+    },
+    "#Underclaw": {
+        "Nickname": "The Hidden City",
+        "School name": "Kwoon of Changquan",
+    },
+    "#Pouch": {
+        "Nickname": "Forest of Wine and Shadow",
+        "School name": "School of Zui Quan",
+    }
 }
 
 var playerInfo = {
@@ -16,26 +31,31 @@ var playerInfo = {
         "color": "aqua",
         "locationIndex": 0,
         "townInfoId": "#p1TownInfo",
+        "townSchoolId": "#p1TownSchool",
     },
     "p2": {
         "color": "gray",
         "locationIndex": 2,
         "townInfoId": "#p2TownInfo",
+        "townSchoolId": "#p2TownSchool",
     },
     "p3": {
         "color": "crimson",
         "locationIndex": 4,
         "townInfoId": "#p3TownInfo",
+        "townSchoolId": "#p3TownSchool",
     },
     "p4": {
         "color": "green",
         "locationIndex": 6,
         "townInfoId": "#p4TownInfo",
+        "townSchoolId": "#p4TownSchool",
     },
     "p5": {
         "color": "blueviolet",
         "locationIndex": 8,
         "townInfoId": "#p5TownInfo",
+        "townSchoolId": "#p5TownSchool",
     },
 }
 
@@ -72,11 +92,17 @@ function updateLocationColors() {
 
 function updateTownInfo() {
     Object.keys(playerInfo).forEach(player => {
-        var locationDescription = TOWN_DESCRIPTIONS[LOCATION_IDS[playerInfo[player]["locationIndex"]]]
-        if (locationDescription == undefined) {
-            locationDescription = "The Valley of the Star"
+        var playerLocationId = LOCATION_IDS[playerInfo[player]["locationIndex"]]
+        var townInfo = TOWN_DESCRIPTIONS[playerLocationId]
+        if (townInfo == undefined) {
+            var locationDescription = "The Valley of the Star";
+            var locationSchoolName = "Wilderness";
+        } else {
+            var locationDescription = TOWN_DESCRIPTIONS[playerLocationId]["Nickname"]
+            var locationSchoolName = TOWN_DESCRIPTIONS[playerLocationId]["School name"]
         }
         $(playerInfo[player]["townInfoId"]).html(locationDescription)
+        $(playerInfo[player]["townSchoolId"]).html(locationSchoolName)
     })
 }
 
